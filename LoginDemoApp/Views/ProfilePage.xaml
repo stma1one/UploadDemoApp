@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LoginDemoApp.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:LoginDemoApp.ViewModels"
+    Title="ProfilePage"
+    x:DataType="viewmodels:ProfilePageViewModel">
+    <StackLayout Padding="10">
+        <Frame
+            CornerRadius="100"
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="200">
+            <Image
+                Aspect="AspectFill"
+                HeightRequest="200"
+                WidthRequest="200">
+                <Image.Source>
+                    <UriImageSource CachingEnabled="False" Uri="{Binding ProfileImage}" />
+
+                </Image.Source>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UploadImageCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
+        <Entry Placeholder="Name" Text="{Binding Name}" />
+        <Entry
+            Keyboard="Email"
+            Placeholder="Email"
+            Text="{Binding Email}" />
+    </StackLayout>
+</ContentPage>
