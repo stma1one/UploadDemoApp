@@ -113,7 +113,7 @@ namespace LoginDemoApp.Services
             {
                 var fileContent = new ByteArrayContent(streamBytes);
                 fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("image/jpeg");
-
+                //"file" --זהה לשם הפרמטר של הפעולה בשרת שמייצגת את הקובץ
                 content.Add(fileContent, "file", photo.FileName);
                 var response = await client.PostAsync(@$"{this.baseUrl}UploadProfile/talsi@talsi.com", content);
                 if (response.IsSuccessStatusCode)
